@@ -2,6 +2,7 @@ fn gcd(a: u64, b: u64) -> u64 {
 	if a < b {
 		gcd(b, a)
 	} else {
+        assert!( a >= b );
 		if b == 0 {
 			a
         } else {
@@ -23,7 +24,7 @@ fn main() {
     assert!( numbers.len() > 0, "no args passed" );
     
     let mut d = numbers[0];
-    for n in &numbers {
+    for n in &numbers[1..] {
         d = gcd( d, *n);
     }
 
